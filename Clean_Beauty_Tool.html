@@ -219,9 +219,11 @@
   }
 
   #clean-beauty-tools .cbt-choose p {
+    flex: 0 0 auto;
     max-width: 520px;
     margin: 0;
     color: var(--muted);
+    white-space: nowrap;
   }
 
   #clean-beauty-tools .cbt-grid {
@@ -332,12 +334,16 @@
     font-size: 13px;
   }
 
+  @media (max-width: 900px) {
+    #clean-beauty-tools .cbt-choose { align-items: flex-start; flex-direction: column; }
+  }
+
   @media (max-width: 720px) {
     #clean-beauty-tools .cbt-grid,
     #clean-beauty-tools .cbt-difference,
     #clean-beauty-tools .cbt-onboard,
     #clean-beauty-tools .cbt-stage-grid { grid-template-columns: 1fr; }
-    #clean-beauty-tools .cbt-choose { align-items: flex-start; flex-direction: column; }
+    #clean-beauty-tools .cbt-choose p { white-space: normal; }
     #clean-beauty-tools .cbt-masthead,
     #clean-beauty-tools footer { align-items: flex-start; flex-direction: column; }
   }
@@ -362,9 +368,9 @@
     <div class="cbt-choose">
       <div>
         <div class="cbt-choose-label">Choose a path</div>
-        <h2>Explore the wider market or follow the questions to the answer.</h2>
+        <h2>Choose how to explore the research below.</h2>
       </div>
-      <p>Both paths begin with the same public research.</p>
+      <p>Both paths begin with the same public data.</p>
     </div>
 
     <div class="cbt-grid">
@@ -405,18 +411,16 @@
         <p>Jev is TypeSafe.ai’s model for answering focused questions with probabilities rather than long conversational responses.</p>
         <p>The current Decision Tree responds to the choices you make. In a future version, Jev could be given the same public research and asked the same questions. Its responses would remain separate from yours, making it easy to see where the two perspectives agree, where they differ and how they change as the research is updated.</p>
 
-        <div class="cbt-links" aria-label="Learn more about Jev">
-          <a class="cbt-text-link" href="https://typesafe.ai/blog/introducing-system-one-models-and-jev" target="_blank" rel="noopener noreferrer">Read TypeSafe’s introduction to Jev&nbsp;↗</a>
-          <a class="cbt-text-link" href="https://docs.typesafe.ai/primitives/noul" target="_blank" rel="noopener noreferrer">See how TypeSafe structures Yes-or-No questions&nbsp;↗</a>
-        </div>
       </div>
 
       <aside class="cbt-demo" aria-labelledby="cbt-demo-title">
         <div class="cbt-demo-label">A Jev demonstration I find especially useful</div>
         <h3 id="cbt-demo-title">Wikiracing</h3>
-        <p>TypeSafe introduced Wikiracing in its Jev launch post. At each step, Jev chooses one of the links available on the current Wikipedia page until it reaches the target. The path is visible from beginning to end. That same visibility is central to the Decision Tree: every question, answer and rule that shapes the result can be seen.</p>
-        <a class="cbt-text-link" href="https://jev-agent.com/wikirace" target="_blank" rel="noopener noreferrer">Try an independent Jev Wikiracing demo&nbsp;↗</a>
-        <a class="cbt-text-link" href="https://typesafe.ai/blog/introducing-system-one-models-and-jev" target="_blank" rel="noopener noreferrer">Read TypeSafe’s official Jev launch post&nbsp;↗</a>
+        <p>TypeSafe introduced Wikiracing in its Jev launch post. At each step, Jev chooses one of the links available on the current Wikipedia page until it reaches the target. The path is visible from beginning to end.</p>
+        <div class="cbt-links" aria-label="Jev references">
+          <a class="cbt-text-link" href="https://typesafe.ai/blog/introducing-system-one-models-and-jev" target="_blank" rel="noopener noreferrer">TypeSafe’s Jev overview&nbsp;↗</a>
+          <a class="cbt-text-link" href="https://jev-agent.com/wikirace" target="_blank" rel="noopener noreferrer">Wikiracing example&nbsp;↗</a>
+        </div>
       </aside>
     </section>
 
