@@ -104,11 +104,7 @@
     padding: clamp(24px, 4vw, 38px);
     border: 1px solid var(--rule);
     border-radius: 16px;
-    background: linear-gradient(
-      135deg,
-      rgba(232, 247, 247, .88),
-      rgba(255, 255, 255, .96)
-    );
+    background: linear-gradient(135deg, rgba(232, 247, 247, .88), rgba(255, 255, 255, .96));
   }
 
   #clean-beauty-tools .cbt-onboard-label,
@@ -135,6 +131,30 @@
   }
 
   #clean-beauty-tools .cbt-onboard-copy strong { color: var(--ink); }
+
+  #clean-beauty-tools .cbt-stage-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    margin-top: 20px;
+  }
+
+  #clean-beauty-tools .cbt-stage {
+    padding: 16px;
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, .82);
+  }
+
+  #clean-beauty-tools .cbt-stage strong {
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  #clean-beauty-tools .cbt-stage p {
+    margin: 0;
+    font-size: 15px;
+  }
 
   #clean-beauty-tools .cbt-links {
     display: flex;
@@ -274,6 +294,20 @@
     border-color: var(--aqua);
   }
 
+  #clean-beauty-tools .cbt-difference {
+    display: grid;
+    grid-template-columns: 180px minmax(0, 1fr);
+    gap: 24px;
+    margin-top: 28px;
+    padding: 24px 0 0;
+    border-top: 1px solid var(--rule);
+  }
+
+  #clean-beauty-tools .cbt-difference p {
+    margin: 0;
+    color: var(--muted);
+  }
+
   #clean-beauty-tools .cbt-version-note {
     margin: 34px 0 0;
     padding: 18px 0 0;
@@ -300,20 +334,12 @@
 
   @media (max-width: 720px) {
     #clean-beauty-tools .cbt-grid,
-    #clean-beauty-tools .cbt-onboard {
-      grid-template-columns: 1fr;
-    }
-
-    #clean-beauty-tools .cbt-choose {
-      align-items: flex-start;
-      flex-direction: column;
-    }
-
+    #clean-beauty-tools .cbt-difference,
+    #clean-beauty-tools .cbt-onboard,
+    #clean-beauty-tools .cbt-stage-grid { grid-template-columns: 1fr; }
+    #clean-beauty-tools .cbt-choose { align-items: flex-start; flex-direction: column; }
     #clean-beauty-tools .cbt-masthead,
-    #clean-beauty-tools footer {
-      align-items: flex-start;
-      flex-direction: column;
-    }
+    #clean-beauty-tools footer { align-items: flex-start; flex-direction: column; }
   }
 </style>
 
@@ -326,14 +352,10 @@
   <main>
     <div class="cbt-kicker">Interactive research experiment</div>
     <h1 id="cbt-title">Is Clean Beauty Still Relevant?</h1>
-
     <div class="cbt-intro">
       <p>As I began researching <em>Is Clean Beauty Still Relevant?</em> for my next article, I also wanted to experiment with another way for readers to experience market research. I imagined an interactive companion to the article.</p>
-
       <p>The Research Brief brings together the wider market context and what different results could mean for brands. The Decision Tree shows how a series of Yes-or-No questions leads to an answer.</p>
-
       <p>With AI assistance, I built the underlying logic behind both experiences. I broke the broad category question into smaller market questions, determined how much each one would influence the overall outlook, and wrote the Yes-or-No rules that produce the Decision Tree result.</p>
-
       <p>TypeSafe.ai’s recent launch of Jev gave the idea a practical next step. Jev is TypeSafe’s first public System One Model. It answers a focused Yes-or-No question with a percentage showing how likely the answer is Yes. A future version could ask Jev the same questions using the same public research and compare its answers with the reader’s.</p>
     </div>
 
@@ -342,7 +364,6 @@
         <div class="cbt-choose-label">Choose a path</div>
         <h2>Explore the wider market or follow the questions to the answer.</h2>
       </div>
-
       <p>Both paths begin with the same public research.</p>
     </div>
 
@@ -351,96 +372,54 @@
         <div class="cbt-tool-number">Path 1 · Market view</div>
         <h2 id="cbt-tool-1">Research Brief</h2>
         <h3>Understand the market</h3>
-
         <p class="cbt-purpose">Consider the market context, move the sliders and see how different answers change the overall outlook and what it could mean for brands.</p>
-
         <h3>Useful for</h3>
-
         <ul>
           <li>Preparing executive or client briefings</li>
           <li>Exploring possible category outcomes</li>
           <li>Discussing implications for brand positioning</li>
           <li>Using research in workshops and working sessions</li>
         </ul>
-
-        <a
-          class="cbt-action"
-          href="./Clean_Beauty_Tool_1_Research_Brief.html"
-        >Open the Research Brief</a>
+        <a class="cbt-action" href="./Clean_Beauty_Research_Brief.html">Open the Research Brief</a>
       </section>
 
       <section class="cbt-tool" aria-labelledby="cbt-tool-2">
         <div class="cbt-tool-number">Path 2 · How the answer is reached</div>
         <h2 id="cbt-tool-2">Decision Tree</h2>
         <h3>Test the question</h3>
-
         <p class="cbt-purpose">Move the sliders to answer the market questions. The Decision Tree shows whether clean beauty remains relevant and whether it still functions as one clearly defined category.</p>
-
         <h3>Useful for</h3>
-
         <ul>
           <li>Comparing how people interpret the same research</li>
           <li>Showing which answer changes the conclusion</li>
           <li>Discussing different views across a team</li>
           <li>Returning to the question as the research changes</li>
         </ul>
-
-        <a
-          class="cbt-action"
-          href="./Clean_Beauty_Tool_2_Decision_Tree_V6.html"
-        >Open the Decision Tree</a>
+        <a class="cbt-action" href="./Clean_Beauty_Decision_Tree.html">Open the Decision Tree</a>
       </section>
     </div>
 
     <section class="cbt-onboard" aria-labelledby="cbt-jev-title">
       <div class="cbt-onboard-copy">
         <h2 id="cbt-jev-title">What Jev could add</h2>
-
         <p>Jev could answer the same questions using the public research cited here. Its result would appear separately from yours, allowing both to be compared as the research changes.</p>
 
         <div class="cbt-links" aria-label="Learn more about Jev">
-          <a
-            class="cbt-text-link"
-            href="https://typesafe.ai/blog/introducing-system-one-models-and-jev"
-            target="_blank"
-            rel="noopener noreferrer"
-          >Read TypeSafe’s introduction to Jev&nbsp;↗</a>
-
-          <a
-            class="cbt-text-link"
-            href="https://docs.typesafe.ai/primitives/noul"
-            target="_blank"
-            rel="noopener noreferrer"
-          >See TypeSafe’s guide to Yes-or-No questions&nbsp;↗</a>
+          <a class="cbt-text-link" href="https://typesafe.ai/blog/introducing-system-one-models-and-jev" target="_blank" rel="noopener noreferrer">Read TypeSafe’s introduction to Jev&nbsp;↗</a>
+          <a class="cbt-text-link" href="https://docs.typesafe.ai/primitives/noul" target="_blank" rel="noopener noreferrer">See TypeSafe’s guide to Yes-or-No questions&nbsp;↗</a>
         </div>
       </div>
 
       <aside class="cbt-demo" aria-labelledby="cbt-demo-title">
         <div class="cbt-demo-label">A Jev demonstration I find especially useful</div>
         <h3 id="cbt-demo-title">Wikiracing</h3>
-
         <p>TypeSafe introduced Wikiracing in its Jev launch post. At each step, Jev chooses one of the links available on the current Wikipedia page until it reaches the target. The path is visible from beginning to end. That same visibility is central to the Decision Tree: every question, answer and rule that shapes the result can be seen.</p>
-
-        <a
-          class="cbt-text-link"
-          href="https://jev-agent.com/wikirace"
-          target="_blank"
-          rel="noopener noreferrer"
-        >Try an independent Jev Wikiracing demo&nbsp;↗</a>
-
-        <a
-          class="cbt-text-link"
-          href="https://typesafe.ai/blog/introducing-system-one-models-and-jev"
-          target="_blank"
-          rel="noopener noreferrer"
-        >Read TypeSafe’s official Jev launch post&nbsp;↗</a>
+        <a class="cbt-text-link" href="https://jev-agent.com/wikirace" target="_blank" rel="noopener noreferrer">Try an independent Jev Wikiracing demo&nbsp;↗</a>
+        <a class="cbt-text-link" href="https://typesafe.ai/blog/introducing-system-one-models-and-jev" target="_blank" rel="noopener noreferrer">Read TypeSafe’s official Jev launch post&nbsp;↗</a>
       </aside>
     </section>
 
-    <p class="cbt-version-note">
-      <strong>Working prototype.</strong>
-      This page will be updated as the experience develops.
-    </p>
+    <p class="cbt-version-note"><strong>Working prototype.</strong> This page will be updated as the experience develops.</p>
 
     <footer>
       <div>Research synthesis, concept and experience design by Jeannie Joshi.</div>
